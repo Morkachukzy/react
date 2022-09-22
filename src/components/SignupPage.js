@@ -3,8 +3,19 @@ import "../css/SignupPage.css";
 import SignIn from "./LoginPage";
 import React from "react";
 import { Link } from "react-router-dom";
+import {useState} from 'react';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
+
+  const getValueInput = event => {
+    console.log(username, email, password, password2);
+  };
+  
+  
   return (
     <div className="signup-main">
       <div>
@@ -20,9 +31,11 @@ const Login = () => {
           <label className="email">
             <input
               type="text"
-              name="username"
-              id="username"
+              name="email"
+              id="email"
               placeholder="Enter an email account: required"
+              onChange={event => setUsername(event.target.value)}
+              required
             ></input>
           </label>
         </div>
@@ -31,9 +44,11 @@ const Login = () => {
           <label className="about_me">
             <input
               type="text"
-              name="username"
-              id="username"
+              name="about_me"
+              id="about_me"
               placeholder='Enter an "about me": required'
+              onChange={event => setEmail(event.target.value)}
+              required
             ></input>
           </label>
         </div>
@@ -42,9 +57,11 @@ const Login = () => {
           <label className="password">
             <input
               type="text"
-              name="username"
-              id="username"
+              name="password"
+              id="password"
               placeholder="Enter a password: required"
+              onChange={event => setPassword(event.target.value)}
+              required
             ></input>
           </label>
         </div>
@@ -53,9 +70,11 @@ const Login = () => {
           <label className="password2">
             <input
               type="password"
-              name="password"
-              id="password"
-              placeholder="Repeat password"
+              name="password2"
+              id="password2"
+              placeholder="Repeat password: required"
+              onChange={event => setPassword2(event.target.value)}
+              required
             ></input>
           </label>
         </div>
@@ -63,16 +82,8 @@ const Login = () => {
         <br />
 
         <div className="action">
-          <button type="submit" onClick="getValueInput()">Sign Up</button>
+          <button type="submit" onClick={getValueInput}>Sign Up</button>
         </div>
-
-        <script>
-        const getValueInput = () => {
-            //  let  inputValue = document.getElementById('username').value;
-            document.getElementById('username').innerHTML = inputValue;
-            console.log(inputValue);
-          };
-        </script>
         
         <br />
         <br />
@@ -85,8 +96,7 @@ const Login = () => {
           <br />
             <div id='output'>
                 <h4>REQUEST RESULTS</h4>
-                    <div id="request">
-                      REQUEST RESULTS
+                    <div id="api-response">
                     </div>
             </div>
         </div>
