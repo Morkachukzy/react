@@ -44,7 +44,7 @@ const Login = () => {
               type="text"
               name="username"
               id="username"
-              placeholder="Enter a password: reuired"
+              placeholder="Enter a password: required"
             ></input>
           </label>
         </div>
@@ -63,9 +63,17 @@ const Login = () => {
         <br />
 
         <div className="action">
-          <button type="submit">Sign Up</button>
+          <button type="submit" onClick="getValueInput()">Sign Up</button>
         </div>
 
+        <script>
+        const getValueInput = () => {
+            //  let  inputValue = document.getElementById('username').value;
+            document.getElementById('username').innerHTML = inputValue;
+            console.log(inputValue);
+          };
+        </script>
+        
         <br />
         <br />
 
@@ -74,8 +82,13 @@ const Login = () => {
           <span>
             <Link to="/login">Log in</Link>
           </span>
-
           <br />
+            <div id='output'>
+                <h4>REQUEST RESULTS</h4>
+                    <div id="request">
+                      REQUEST RESULTS
+                    </div>
+            </div>
         </div>
       </div>
     </div>
